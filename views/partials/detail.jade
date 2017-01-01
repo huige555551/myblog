@@ -1,0 +1,13 @@
+extend layout
+block content
+	h1 用户信息
+	p 用户名
+	span #{user.username}
+	p 学号
+	span #{user.studentId}
+	p 电话
+	span #{user.telephone}
+	p 邮箱
+	span #{user.email}
+	a(href="/signup")
+		input(type="button",value="注册")

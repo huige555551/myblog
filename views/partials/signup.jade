@@ -1,0 +1,41 @@
+
+h1 用户注册
+form#signup(method="post",accept-charset="utf-8")
+	div(ng-show="error") 用户信息重复
+	div.field
+		lable(for="username") 用户名
+		input#username(type="text", ng-model="form.username", name="username")
+		span.error
+
+	div.field
+		lable(for="password") 密码
+		input#password(type="text", ng-model="form.password", name="password")
+		span.error
+
+	div.field
+		lable(for="repeat-password") 重复密码
+		input#repeatPassword(type="text")
+		span.error
+
+	div.field
+		lable 学号&nbsp;&nbsp;&nbsp;
+		input#studentId(type="text", name="studentId", ng-model="form.studentId")
+		span.error
+
+	div.field
+		lable 电话&nbsp;&nbsp;&nbsp;
+		input#telephone(type="text",name="telephone", ng-model="form.telephone")
+		span.error
+
+	div.field
+		lable 邮箱&nbsp;&nbsp;&nbsp;
+		input#email(type="text",name="email", ng-model="form.email")
+		span.error
+
+	div.field
+		input#reset(type="reset",value="重置")
+		input#submit(type="submit",ng-click='submitPost()',value="提交")
+		a(href="/signin")
+			input(type="button",value="登陆")
+script(src="/javascripts/validator.js")
+script(src="/javascripts/signup.js")

@@ -1,0 +1,17 @@
+h1 用户登录
+form#signin(method="post",accept-charset="utf-8")
+    div(ng-show="error") 用户名或者密码错误
+    div.field
+        lable(for="username") 用户名
+        input#username(type="text",ng-model='form.username',name="username")
+        span.error
+
+    div.field
+        lable(for="password") 密码
+        input#password(type="text",ng-model='form.password',name="password")
+        span.error
+    div.field
+        input#reset(type="reset",value="重置")
+        input#submit(type="submit",ng-click='submitPost()',value="提交")
+        a(href="/signup")
+            input(type="button",value="注册")
