@@ -18,7 +18,8 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives'])
         templateUrl: 'partials/signupPost',
         controller: SignupPostCtrl
     }).when('/signout', {
-
+        templateUrl: 'partials/signout',
+        controller: SignoutCtrl
     }).when('/addPost', {
         templateUrl: 'partials/addPost',
         controller: AddPostCtrl

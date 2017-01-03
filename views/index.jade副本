@@ -1,0 +1,29 @@
+extends layout
+
+block body
+  .navbar.navbar-fixed-top
+    .navbar-inner
+      .container
+        a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.brand(ng-href='/') Microblog
+        .nav-collapse
+          ul.nav
+            li.active
+              a(ng-href='/') 首页
+            li
+              a(ng-href='/signin') 登入
+            li
+              a(ng-href='/signup') 注册
+            li
+              a(ng-href='/signout') 登出
+
+  div(ng-view)
+  script(src='javascripts/lib/angular/angular.js')
+  script(src='javascripts/app.js')
+  script(src='javascripts/services.js')
+  script(src='javascripts/controllers.js')
+  script(src='javascripts/filters.js')
+  script(src='javascripts/directives.js')

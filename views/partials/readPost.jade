@@ -1,7 +1,7 @@
 section
-  h3 {{post.title}}
-  div {{post.text}}
-  h2 评论区
+  h1 {{post.title}}
+  p {{post.text}}
+  h3 评论区
 
   div(ng-repeat='comment in comments')
     div(ng-show='!user.isAdmin && comment.hidden') 该评论已经给管理员屏蔽
@@ -9,17 +9,19 @@ section
     div(ng-show='user.isAdmin')  {{comment.commentText}}
     div 评论人：{{comment.commentUser}} 时间：{{comment.commentTime | date:'yyyy-MM-dd HH:mm:ss'}}
     div(ng-show="comment.commentUser==myusername && !user.isAdmin")
-      input(type='button', ng-click='editComment(comment._id)', value='Edit')
-      input(type='button', ng-click='deleteComment(comment._id)', value='Delete')
+      input.btn.btn-primary(type='button', ng-click='editComment(comment._id)', value='Edit')
+      input.btn.btn-danger(type='button', ng-click='deleteComment(comment._id)', value='Delete')
     div(ng-show='user.isAdmin')
-      input(type='button', ng-click='editComment(comment._id)', value='Edit')
-      input(type='button', ng-click='deleteComment(comment._id)', value='Delete')
-      input(ng-show='comment.hidden', type='button', ng-click='hiddenComment(comment._id)', value='show')
-      input(ng-show='!comment.hidden', type='button', ng-click='hiddenComment(comment._id)', value='hidden')
+      input.btn.btn-primary(type='button', ng-click='editComment(comment._id)', value='Edit')
+      input.btn.btn-danger(type='button', ng-click='deleteComment(comment._id)', value='Delete')
+      input.btn.btn-primary(ng-show='comment.hidden', type='button', ng-click='hiddenComment(comment._id)', value='show')
+      input.btn.btn-warning(ng-show='!comment.hidden', type='button', ng-click='hiddenComment(comment._id)', value='hidden')
     br
   form(accept-charset="utf-8", ng-show="edit")
-    textarea(name='content',ng-model="form.commentTextEdit")
-    input(type='submit',ng-click='editCommentPost()',value="修改评论")
+    div.form-group
+      textarea.form-control(name='content',ng-model="form.commentTextEdit")
+      input.btn.btn-primary(type='submit',ng-click='editCommentPost()',value="修改评论")
   form(method="post",accept-charset="utf-8")
-    textarea(name='content',ng-model="form.commentText")
-    input(type='submit',ng-click='commentPost()',value="留言")
+    div.form-group
+      textarea.form-control(name='content',ng-model="form.commentText")
+      input.btn.btn-primary(type='submit',ng-click='commentPost()',value="留言")

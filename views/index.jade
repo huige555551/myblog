@@ -1,23 +1,22 @@
 extends layout
 
 block body
-  div
-    h2 My Blog
-    ul
-      li
-        a(ng-href='/signin') 登录
-      li
-        a(ng-href='/signup') 注册
-      li
-        a(ng-href='/signout') 登出
-    ul
-      li
-        a(ng-href='/') Home
-      li
-        a(ng-href='/addPost') Add a new post
-
+  nav.navbar.navbar-default
+    .container
+      .navbar-header
+        a.navbar-brand(ng-href='／') Myblog
+      .navbar-collapse.collapse
+        ul.nav.navbar-nav
+          li.active
+            a(ng-href='/signin') 登录
+          li
+            a(ng-href='/signup') 注册
+          li
+            a(ng-href='/signout') 登出
+          li
+            a(ng-href='/addPost') 添加文章
+  div.container
     div(ng-view)
-
   script(src='javascripts/lib/angular/angular.js')
   script(src='javascripts/app.js')
   script(src='javascripts/services.js')

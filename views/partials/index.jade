@@ -1,23 +1,28 @@
 div(ng-show="currentUserName")
-  p There are {{posts.length}} posts
-  div(ng-repeat='post in posts')
-    h3 {{post.title}}
-    div {{post.text.substr(0, 50) + '...'}}
-    div 发布人:{{post.username}}  发布时间:{{post.articalTime | date:'yyyy-MM-dd HH:mm:ss'}}
-    div(ng-show='!user.isAdmin && post.hidden') 此消息已经给管理员隐藏
-    div(ng-show="!user.isAdmin && post.username==currentUserName && !post.hidden")
-      a(href='/readPost/{{post._id}}') More
-      |  -
-      a(href='/editPost/{{post._id}}') Edit
-      |  -
-      a(href='/deletePost/{{post._id}}') Delete
-    div(ng-show="!user.isAdmin && post.username!=currentUserName && !post.hidden")
-      a(href='/readPost/{{post._id}}') More
-    div(ng-show='user.isAdmin')
-      a(href='/readPost/{{post._id}}') More
-      |  -
-      a(href='/editPost/{{post._id}}') Edit
-      |  -
-      a(href='/deletePost/{{post._id}}') Delete
-      input(ng-show='post.hidden', type='button', ng-click="hiddenBlog(post._id)", value="show")
-      input(ng-show='!post.hidden', type='button', ng-click="hiddenBlog(post._id)", value="hidden")
+
+  h1 查找内容:
+    input(type='text', placeholder='', ng-model='search')
+  h2 There are {{posts.length}} posts
+  div.container
+    div.row
+      div.col-md-4(ng-repeat="post in posts| filter:search | orderBy: -post.articalTime")
+        h3 {{post.title}}
+        p {{post.text.substr(0, 50) + '...'}}
+        div 发布人:{{post.username}}  发布时间:{{post.articalTime | date:'yyyy-MM-dd HH:mm:ss'}}
+        div(ng-show='!user.isAdmin && post.hidden') 此消息已经给管理员隐藏
+        div(ng-show="!user.isAdmin && post.username==currentUserName && !post.hidden")
+          a.btn.btn-info(href='/readPost/{{post._id}}') More
+          |  -
+          a.btn.btn-primary(href='/editPost/{{post._id}}') Edit
+          |  -
+          a.btn.btn-danger(href='/deletePost/{{post._id}}') Delete
+        div(ng-show="!user.isAdmin && post.username!=currentUserName && !post.hidden")
+          a.btn.btn-info(href='/readPost/{{post._id}}') More
+        div(ng-show='user.isAdmin')
+          a.btn.btn-info(href='/readPost/{{post._id}}') More
+          |  -
+          a.btn.btn-primary(href='/editPost/{{post._id}}') Edit
+          |  -
+          a.btn.btn-danger(href='/deletePost/{{post._id}}') Delete
+          input.btn.btn-primary(ng-show='post.hidden', type='button', ng-click="hiddenBlog(post._id)", value="show")
+          input.btn.btn-primary(ng-show='!post.hidden', type='button', ng-click="hiddenBlog(post._id)", value="hidden")
