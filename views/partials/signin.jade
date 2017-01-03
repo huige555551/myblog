@@ -1,19 +1,18 @@
 fieldset
     legend 用户登入
-    form#signin(method="post",accept-charset="utf-8")
+    form#signin.form-horizontal(method="post",accept-charset="utf-8",role='form')
         div(ng-show="error") 用户名或者密码错误
-        div.field.control-group
-            lable.control-label(for="username") 用户名
-            div.controls
-                input#username(type="text",ng-model='form.username',name="username")
+        div.field.form-group
+            lable.col-md-1.control-label(for="username") 用户名
+            div.col-md-2
+                input#username.form-control(type="text",ng-model='form.username',name="username")
                 span.error
-        div.field.control-group
-            lable.control-label(for="password") 密码
-            div.controls
-                input#password(type="text",ng-model='form.password',name="password")
+        div.field.form-group
+            lable.col-md-1.control-label(for="password") 密码
+            div.col-md-2
+                input#password.form-control(type="text",ng-model='form.password',name="password")
                 span.error
-        div.field.form-actions
-            input#reset.btn.btn-primary(type="reset",value="重置")
-            input#submit.btn.btn-primary(type="submit",ng-click='submitPost()',value="提交")
-            a(href="/signup")
-                input.btn.btn-primary(type="button",value="注册")
+        div.field.form-actions.form-group
+            input#reset.btn.btn-primary.col-md-1(type="reset",value="重置")
+            input#submit.btn.btn-primary.col-md-1(type="submit",ng-click='submitPost()',value="提交")
+            a.btn.btn-primary.col-md-1(href="/signup") 注册

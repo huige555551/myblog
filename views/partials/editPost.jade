@@ -1,10 +1,9 @@
 h2 Edit post
-label(for='title') Title: 
-input(ng-model='form.title', name='title')
-p Body:
 form(role='form')
+   div.form-group
+    label.control-label(for='title') Title:
+    input.form-control(ng-model='form.title', name='title')
   div.form-group
+    label.control-label(for='body') Body:
     textarea.form-control(ng-model='form.text', cols='50', rows='15')
-
-p
   button.btn.btn-success(ng-click='editPost()') Edit Post

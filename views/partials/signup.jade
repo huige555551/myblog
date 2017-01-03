@@ -1,48 +1,47 @@
 fieldset
 	legend 注册
-	form#signup(method="post",accept-charset="utf-8")
+	form#signup.form-horizontal(method="post",accept-charset="utf-8")
 		div(ng-show="error") 用户信息重复
-		div.field.control-group
-			lable.control-label(for="username") 用户名
-			div.controls
-				input#username(type="text", ng-model="form.username", name="username")
+		div.field.form-group
+			lable.control-label.col-md-1(for="username") 用户名
+			div.col-md-2
+				input#username.form-control(type="text", ng-model="form.username", name="username")
 				span.error
 
-		div.field.control-group
-			lable.control-label(for="password") 密码
-			div.controls
-				input#password(type="text", ng-model="form.password", name="password")
+		div.field.form-group
+			lable.control-label.col-md-1(for="password") 密码
+			div.col-md-2
+				input#password.form-control(type="text", ng-model="form.password", name="password")
 				span.error
 
-		div.field.control-group
-			lable.control-label(for="repeat-password") 重复密码
-			div.controls
-				input#repeatPassword(type="text")
+		div.field.form-group
+			lable.control-label.col-md-1(for="repeat-password") 重复密码
+			div.col-md-2
+				input#repeatPassword.form-control(type="text")
 				span.error
 
-		div.field.control-group
-			lable.control-label 学号&nbsp;&nbsp;&nbsp;
-			div.controls
-				input#studentId(type="text", name="studentId", ng-model="form.studentId")
+		div.field.form-group
+			lable.control-label.col-md-1 学号&nbsp;&nbsp;&nbsp;
+			div.col-md-2
+				input#studentId.form-control(type="text", name="studentId", ng-model="form.studentId")
 				span.error
 
-		div.field.control-group
-			lable.control-label 电话&nbsp;&nbsp;&nbsp;
-			div.controls
-				input#telephone(type="text",name="telephone", ng-model="form.telephone")
+		div.field.form-group
+			lable.control-label.col-md-1 电话&nbsp;&nbsp;&nbsp;
+			div.col-md-2
+				input#telephone.form-control(type="text",name="telephone", ng-model="form.telephone")
 				span.error
 
-		div.field.control-group
-			lable.control-label 邮箱&nbsp;&nbsp;&nbsp;
-			div.controls
-				input#email(type="text",name="email", ng-model="form.email")
+		div.field.form-group
+			lable.control-label.col-md-1 邮箱&nbsp;&nbsp;&nbsp;
+			div.col-md-2
+				input#email.form-control(type="text",name="email", ng-model="form.email")
 				span.error
 
-		div.field.form-actions
-			div.btn-group
-				input.btn.btn-primary#reset(type="reset",value="重置")
-				input#submit.btn.btn-primary(type="submit",ng-click='submitPost()',value="提交")
-				a(href="/signin")
-					input.btn.btn-primary(type="button",value="登陆")
+		div.field.form-group
+			input.btn.btn-primary.col-md-1#reset(type="reset",value="重置")
+			input#submit.btn.btn-primary.col-md-1(type="submit",ng-click='submitPost()',value="提交")
+			a.btn.btn-primary.col-md-1(href="/signin") 登录
+
 script(src="/javascripts/validator.js")
 script(src="/javascripts/signup.js")

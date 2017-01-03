@@ -1,9 +1,10 @@
 h2 Write a new post
-label(for='title') Title: 
-input(ng-model='form.title', name='title')
-p Body:
 form(role='form')
   div.form-group
-    textarea.form-control(ng-model='form.text', cols='50', rows='15')
-p
+    label.control-label.col-md-2(for='title') Title:
+    input.form-control(ng-model='form.title', name='title')
+
+  div.form-group
+    label.control-label(for='title') Body:
+    textarea.form-control(ng-model='form.text', rows='15')
   button.btn-success(ng-click='submitPost()') Submit Post
