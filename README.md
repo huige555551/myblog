@@ -12,3 +12,11 @@
 （2）管理员  
 可以隐藏所有人的blog或者评论，隐藏后显示“该内容已被管理员隐藏”  
 # 
+
+#截图  
+![signin](./截图/signin.png)
+![signup](./截图/signup.png)
+![page](./截图/page.png)
+![main](./截图/main.png)
+
+
