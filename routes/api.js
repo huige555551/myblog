@@ -50,6 +50,12 @@ exports.post = function (req, res) {
     // }
 };
 
+exports.onlineStatus = function(req, res) {
+    if(req.session.user)
+        return res.json({"user":req.session.user});
+    else
+        return res.json({"user":null});
+}
 // POST
 
 exports.addPost = function (req, res) {
@@ -90,7 +96,7 @@ exports.hiddenPost = function (req,res) {
             if(err)
                 console.log(err)
             else
-                res.json(true);
+                res.json(!data.hidden);
         });
     });
 

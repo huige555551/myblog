@@ -10,12 +10,11 @@ exports.signinPost = function (req, res) {
         req.session.user.isAdmin = true;
     });
     userEntity.checkUserValid(req.body.username, req.body.password).then(function (user) {
-        res.json( true );
+        res.json( {"user": req.session.user});
     }).catch(function (error) {
-        res.json(false);
+        res.json({"user" : null});
         // res.render('partials/signin', {title: '登陆', error: "用户名或者密码错误"});
     });
-
 };
 
 exports.signupPost = function (req, res) {
@@ -30,7 +29,7 @@ exports.signupPost = function (req, res) {
     })
         .then(function(docs) {
             if (docs)
-                res.json(false);
+                res.json({"user" : null});
                 // res.render('signup', { title: '注册', error: '重复注册消息' });
 
             else {
@@ -41,7 +40,7 @@ exports.signupPost = function (req, res) {
                         console.log("Save", data);
                     }
                 });
-                res.json(true);
+                res.json( {"user": req.session.user});
             }
         });
 }

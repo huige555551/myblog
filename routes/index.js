@@ -16,6 +16,8 @@ exports.partials = function (req, res) {
   res.render('partials/' + name);
 };
 
+
+
 // var express = require('express');
 // var router = express.Router();
 // var User = require("../modules/user");

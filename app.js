@@ -56,6 +56,7 @@ app.get('/signout',sign.signout);
 app.post('/api/post', api.addPost);
 app.post('/api/post/:id/comment', comment.commentPost);
 app.get('/api/post/:id/comment', comment.comments);
+app.get('/api/onlineStatus',api.onlineStatus);
 app.delete('/api/post/:id/comment/:commentId/delete', comment.deleteComment);
 app.put('/api/post/:id/comment/:commentId', comment.editComment);
 app.put('/api/post/:id', api.editPost);
